@@ -10,4 +10,6 @@ cache:
 r_packages:
   - data.table
   - openxlsx
+
+latex: false
       
