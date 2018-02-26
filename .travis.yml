@@ -1,6 +1,4 @@
 language: r
-dist: trusty
-sudo: false
 
 branches:
   only:
@@ -8,4 +6,8 @@ branches:
 
 cache:
   packages: yes
+
+r_packages:
+  - data.table
+  - openxlsx
       
