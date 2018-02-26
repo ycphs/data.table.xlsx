@@ -1,5 +1,5 @@
-
-{
-      language: r
-      }
+language: r
+r_packages:
+      - data.table
+      - openxlsx
       
