@@ -1,5 +1,11 @@
 language: r
-r_packages:
-      - data.table
-      - openxlsx
+dist: trusty
+sudo: false
+
+branches:
+  only:
+    - master
+
+cache:
+  packages: yes
       
