@@ -20,6 +20,7 @@ dt_sum <-
                dep_on,
                bylist,
                na.rm = TRUE) {
+            requireNamespace(data.table)
             dt1 <- dt[, lapply(.SD, sum, na.rm), .SDcols = ind_var, by = bylist]
             dt2 <-
                   dt[, lapply(.SD, function(i)

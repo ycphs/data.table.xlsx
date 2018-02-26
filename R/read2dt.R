@@ -23,51 +23,26 @@
 #' @param na.strings A character vector of strings which are to be interpreted as NA. Blank cells will be returned as NA.
 #' @param fillMergedCells If TRUE, the value in a merged cell is given to all cells within the merge.
 #' @param skipEmptyCols If \code{TRUE}, empty columns are skipped.
-#' @seealso \code{\link{getNamedRegions}}
 #' @details Formulae written using writeFormula to a Workbook object will not get picked up by read.xlsx().
 #' This is because only the formula is written and left to be evaluated when the file is opened in Excel.
 #' Opening, saving and closing the file with Excel will resolve this.
-#' @author Alexander Walker
+#' @author Philipp Schauberger
 #' @return data.frame
 #' @export
 #' @examples
-#' xlsxFile <- system.file("readTest.xlsx", package = "openxlsx")
-#' df1 <- read.xlsx(xlsxFile = xlsxFile, sheet = 1, skipEmptyRows = FALSE)
-#' sapply(df1, class)
-#' 
-#' df2 <- read.xlsx(xlsxFile = xlsxFile, sheet = 3, skipEmptyRows = TRUE)
-#' df2$Date <- convertToDate(df2$Date)
-#' sapply(df2, class)
-#' head(df2)
-#' 
-#' df2 <- read.xlsx(xlsxFile = xlsxFile, sheet = 3, skipEmptyRows = TRUE,
-#'                    detectDates = TRUE)
-#' sapply(df2, class)
-#' head(df2)
-#' 
-#' wb <- loadWorkbook(system.file("readTest.xlsx", package = "openxlsx"))
-#' df3 <- read.xlsx(wb, sheet = 2, skipEmptyRows = FALSE, colNames = TRUE)
-#' df4 <- read.xlsx(xlsxFile, sheet = 2, skipEmptyRows = FALSE, colNames = TRUE)
-#' all.equal(df3, df4)
-#' 
-#' wb <- loadWorkbook(system.file("readTest.xlsx", package = "openxlsx"))
-#' df3 <- read.xlsx(wb, sheet = 2, skipEmptyRows = FALSE,
-#'  cols = c(1, 4), rows = c(1, 3, 4))
-#' 
-#' ## URL
-#' ## 
-#' #xlsxFile <- "https://github.com/awalker89/openxlsx/raw/master/inst/readTest.xlsx"
-#' #head(read.xlsx(xlsxFile))
+
 #' 
 #' 
-#' @export
+
 read2dt<-function(xlsxFile, sheet = 1, startRow = 1, colNames = TRUE,
                   rowNames = FALSE, detectDates = TRUE, skipEmptyRows = TRUE,
                   skipEmptyCols = TRUE, rows = NULL, cols = NULL, check.names = FALSE,
                   namedRegion = NULL, na.strings = "NA", fillMergedCells = FALSE)
 {
-      #require(openxlsx)
-      dat<-read.xlsx(xlsxFile, sheet , startRow , colNames ,
+      requireNamespace(openxlsx)
+      requireNamespace(data.table)
+      
+      dat<-readWorkbook(xlsxFile, sheet , startRow , colNames ,
                 rowNames , detectDates , skipEmptyRows ,
                 skipEmptyCols, rows, cols, check.names ,
                 namedRegion , na.strings , fillMergedCells )

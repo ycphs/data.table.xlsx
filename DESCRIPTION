@@ -1,0 +1,10 @@
+Package: data.table.xlsx
+Type: Package
+Title: Summarize data.table and safe them as xlsx
+Version: 1.0
+Date: 2016-11-21
+Author: Philipp Schauberger <philipp@schauberger.co.at>
+Maintainer: Philipp Schauberger <philipp@schauberger.co.at>
+Description: data.table export in xlsx
+License: MIT
+RoxygenNote: 6.0.1
