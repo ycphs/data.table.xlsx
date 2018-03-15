@@ -9,7 +9,7 @@
 #' @param dep_on dependent on varibale name or index one or per dependent variable
 #' @param na.rm handles the na.rm variable at summing
 #' @return summarized data.table
-#' @export
+#' @export 
 
 
 
